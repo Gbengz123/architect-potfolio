@@ -1,4 +1,4 @@
-import { projects } from "@/data"
+import { projects } from "@/data";
 import { redirect } from "next/navigation";
 import ProjectPage from "./ProjectPage";
 
@@ -21,9 +21,6 @@ export default async function Page({ params }: PageProps) {
   const nextProject = projects[index + 1] ?? projects[0];
 
   return (
-    <ProjectPage
-      project={project}
-      nextProject={nextProject}
-    />
+    <ProjectPage project={project} nextProject={nextProject} />
   );
 }

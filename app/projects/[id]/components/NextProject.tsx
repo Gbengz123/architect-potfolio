@@ -6,7 +6,7 @@ import type { Project } from "@/data";
 function NextProject({ project }: { project: Project }) {
   return (
     <section>
-      <Link href={`/projects/${project.id}`} className="group block">
+      <Link scroll={true} href={`/projects/${project.id}`} className="group block">
         <div className="relative overflow-hidden h-[clamp(260px,40vw,520px)]">
           <motion.div
             className="absolute inset-0"
