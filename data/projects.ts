@@ -1,17 +1,21 @@
 export interface Project {
-  id: string
-  number: string
-  title: string
-  location: string
-  type: string
-  year: string
-  summary: string
-  concept: string
-  heroImage: string
-  images: { url: string; caption: string }[]
-  tags: string[]
-  details: { label: string; value: string }[]
-  sections: { heading: string; body: string }[]
+  id: string;
+  number: string;
+  title: string;
+  location: string;
+  type: string;
+  year: string;
+  summary: string;
+  concept: string;
+  heroImage: string;
+  tags: string[];
+  details: { label: string; value: string }[];
+  sections: {
+    heading: string;
+    body?: string;
+    images?: { url: string; caption: string }[];
+    imageDirection?: "row" | "column";
+  }[];
 }
 
 const projects: Project[] = [
@@ -26,22 +30,7 @@ const projects: Project[] = [
       "A 15-storey office building integrating both office and commercial spaces to serve the administrative and representational needs of the Institute of Directors Nigeria. The project aimed to improve energy efficiency through the use of an adaptive façade.",
     concept:
       "The design incorporates a podium + tower approach, where the podium houses public and commercial spaces while the tower houses private offices. A double-skin adaptive façade is added to the tower envelope to enhance energy efficiency and aesthetics. The façade concept is drawn from the Mimosa pudica plant — a sensitive plant that closes when touched. Kite-shaped panels open and close in response to solar radiation, providing solar shading and access control.",
-    heroImage:
-      "/images/IDO.png",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1786355095881-bd002e6205ec?w=1200&h=800&fit=crop&auto=format",
-        caption: "Façade detail — adaptive brick and glass panels",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1774097439393-a3502dea982c?w=1200&h=800&fit=crop&auto=format",
-        caption: "Tower elevation — IOD identity lettering",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1661332628354-3ec604f4411d?w=800&h=1000&fit=crop&auto=format",
-        caption: "Street-level perspective with podium canopy",
-      },
-    ],
+    heroImage: "/images/IOD/IOD-hero.png",
     tags: ["Office", "15 Floors", "Adaptive Façade", "Commercial"],
     details: [
       { label: "Location", value: "Ikoyi, Lagos" },
@@ -53,19 +42,58 @@ const projects: Project[] = [
     sections: [
       {
         heading: "Site Analysis",
-        body: "The site is located at the intersection of Olu Holloway Road and Molodegi Johnson Avenue in Ikoyi. Annual rainfall peaks between April and October; the roof was designed to support rainwater harvesting. Northeast trade winds (Harmattan) and southwest Atlantic breezes informed fenestration orientation to maximize natural ventilation. Sun-path analysis guided shading strategies — the adaptive façade responds to mid-day peak solar intensity.",
+        images: [
+          {
+            url: "/images/IOD/iod-site-analysis.png",
+            caption: "site analysis image",
+          },
+        ],
       },
       {
         heading: "Form Development",
-        body: "The tower-on-podium typology separates public commerce from private office functions. A portion of the podium base is cut away to create covered parking beneath a green recreational roof terrace. The double-skin façade system uses strut-supported kite-form panels mounted on curtain wall strut sleeves that penetrate the primary structure, allowing the outer skin to move independently.",
+        body: "The design incorporates the podium + tower approach, such that the podium will house public/ commercial spaces while the tower will house the private offices. A double skin faced will be added to the tower envelope to enhance energy efficiency and esthetics.",
+        images: [
+          {
+            url: "/images/IOD/iod-form-development.png",
+            caption: "form development graphic image",
+          },
+        ],
       },
       {
         heading: "Adaptive Façade Concept",
-        body: "Each panel is derived geometrically from the leaf form of the Mimosa pudica (sensitive plant), tapering to both ends in a kite shape. Panels are mounted on pivot axes and actuated to fold inward in response to solar radiation sensors. Closed panels reduce direct solar gain; open panels allow diffuse daylight and natural ventilation. The façade texture, viewed from a distance, reads as a rich woven surface animated by light.",
+        body: "The concept is for an adaptive panel that opens and closes by folding and unfolding. Inspired by the mimosa pudica plant which changes its physical form by closing when touched. The shape of the panel is kite like, and you can see from the individual leaf of the mimosa as it follows how it tappers to each end of the leaf.",
+        images: [
+          {
+            url: "/images/IOD/iod-facade-1.png",
+            caption: "Façade detail — adaptive brick and glass panels",
+          },
+          {
+            url: "/images/IOD/iod-facade-2.png",
+            caption: "Façade detail — adaptive brick and glass panels",
+          },
+        ],
       },
       {
         heading: "Floor Plans",
         body: "The ground floor accommodates commercial retail and lobby. The first floor contains office workstations, hot-desk areas, meeting rooms, a gym, and locker rooms. The second-floor podium roof forms an outdoor lounge terrace with city views. Upper floors are dedicated private office suites with conference facilities, serviced by a central lift lobby and flanking escape stairs.",
+        images: [
+          {
+            url: "/images/IOD/iod-ground-floor.png",
+            caption: "Ground floor plan",
+          },
+          {
+            url: "/images/IOD/iod-first-floor.png",
+            caption: "First floor plan",
+          },
+          {
+            url: "/images/IOD/iod-second-floor.png",
+            caption: "Second floor plan",
+          },
+          {
+            url: "/images/IOD/iod-third-floor.png",
+            caption: "Third floor plan",
+          },
+        ],
       },
     ],
   },
@@ -80,18 +108,7 @@ const projects: Project[] = [
       "A Work-Life Innovation and Recreation Hub that explores the architectural integration of professional, creative, and recreational functions within a unified environment. The project is conceived as a dynamic hub where innovation and leisure coexist.",
     concept:
       "The design concept is based on the idea of integration between work, creativity, and relaxation. A circular plan organises the three programmatic zones — work, create, and relax — around a central open courtyard. The equation: Work + Creativity + Relaxation = Balanced Lifestyle.",
-    heroImage:
-      "/images/vinix-innovation-hero.png",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1520386950581-900a51cbbc93?w=1200&h=800&fit=crop&auto=format",
-        caption: "Aerial overview of the circular campus",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1631196945867-91465b8c495b?w=1200&h=800&fit=crop&auto=format",
-        caption: "Site and street connection",
-      },
-    ],
+    heroImage: "/images/vinix/vinix-innovation-hero.png",
     tags: ["Recreational", "Circular Plan", "Mixed-Use", "Lagos"],
     details: [
       { label: "Location", value: "Eko Atlantic, Lagos" },
@@ -103,19 +120,54 @@ const projects: Project[] = [
     sections: [
       {
         heading: "Design Concept",
-        body: "The hub is organised as a circular annular plan with three distinct arc segments — Work, Create, and Relax — radiating from a shared central courtyard. Each segment has its own character: the Work arc is closed and focused; the Create arc opens to natural light through curtain wall glazing; the Relax arc flows outward to landscaped terraces and the courtyard garden.",
+        body: "The design concept is based on the idea of integration between work, creativity, and relaxation. The project is conceived as a dynamic hub where professional activities, innovation, and leisure coexist within a unified environment.",
+        images: [
+          {
+            url: "/images/vinix/vinix-design-concept.png",
+            caption: "design concept detail",
+          },
+        ],
       },
       {
         heading: "Materials & Envelope",
-        body: "The external envelope uses brick façades surrounded by timber-fin overhangs, with curtain wall systems introducing natural light and views across the campus. Wooden grills fixed to selected exterior walls add warmth and texture, referencing traditional Nigerian timber craft. The green roof reduces heat gain and provides occupants with accessible garden spaces.",
+        images: [
+          {
+            url: "/images/vinix/vinix-exterior.png",
+            caption: "Vinix exterior",
+          },
+          {
+            url: "/images/vinix/vinix-material-glass.png",
+            caption:
+              "curutain wall systems as part of the building envelope to enhance lighting and encourage occupants to aprociate view",
+          },
+          {
+            url: "/images/vinix/vinix-material-wooden.png",
+            caption:
+              "wooden grills fixed to selected exterior walls to enhance",
+          },
+        ],
       },
       {
-        heading: "Axonometric Breakdown",
-        body: "The structural system combines aluminum-framed dark-tinted glass terrace shades with timber fins, steel column-and-beam supported glazed sky bridges, and brick façades with protruding timber grils. Planter zones are integrated at multiple levels to bring greenery into the interior courtyard.",
+        heading: "Axonometric Design",
+        images: [
+          {
+            url: "/images/vinix/vinix-axonometric-view-1.png",
+            caption: "Axonometric view",
+          },
+        ],
       },
       {
-        heading: "Chalet Units",
-        body: "Satellite chalet units arranged around the campus perimeter provide short-stay accommodation for participants attending extended residencies or retreats. Each chalet follows the curved geometry of the site, containing two bedrooms, a bathroom, kitchen, and living room within a compact arc-form plan.",
+        heading: "Floor plan",
+        images: [
+          {
+            url: "/images/vinix/vinix-ground-floor-plan.png",
+            caption: "Ground floor plan",
+          },
+          {
+            url: "/images/vinix/vinix-second-floor-plan.png",
+            caption: "Second floor plan",
+          },
+        ],
       },
     ],
   },
@@ -130,18 +182,7 @@ const projects: Project[] = [
       "A Yoruba cultural centre with a geodesic glass dome as its centrepiece. The project focused on construction documentation — site plan, ground floor plan, door schedules, dome component details, and structural details for the parapet, stair, and roof.",
     concept:
       "The gallery is anchored by a geodesic glass dome — a hybrid of stained and reflective 10mm glazing panels mounted on a space-frame truss structure. The dome reads as a contemporary cultural beacon visible from the surrounding landscape, while the radiating plan geometry references traditional Yoruba courtyard spatial organisation.",
-    heroImage:
-      "/images/eko-heritage-hero.png",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1785075953347-bfd3b14953bb?w=1200&h=800&fit=crop&auto=format",
-        caption: "Dome detail — curved roof profile",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1763401650604-f0770b538edc?w=1200&h=800&fit=crop&auto=format",
-        caption: "Entrance approach — stone steps and dome",
-      },
-    ],
+    heroImage: "/images/eko-heritage/eko-heritage-hero.png",
     tags: ["Cultural", "Yoruba Heritage", "Dome", "Construction Documents"],
     details: [
       { label: "Location", value: "Lagos" },
@@ -152,16 +193,35 @@ const projects: Project[] = [
     ],
     sections: [
       {
-        heading: "Dome Construction",
-        body: "The geodesic dome is composed of light-gauge steel trusses covered in 10mm double-glazed tempered glass — a hybrid of stained glass and reflective glass panels. A space truss canopy sits below the outer skin; dome base cladding is wrapped in metal sheets, grinded and sprayed to finish with anti-rust primer and epoxy finish. The structural ring beam connects the dome to the vertical support systems via gusset plates at uniform spacing.",
+        heading: "Dome components & Site Plan",
+        images: [
+          {
+            url: "/images/eko-heritage/eko-dome-components.png",
+            caption: "Dome components",
+          },
+          {
+            url: "/images/eko-heritage/eko-site-plan.png",
+            caption: "Site plan",
+          },
+        ],
       },
       {
-        heading: "Construction Documentation",
-        body: "My role on this project focused on producing the full construction drawing set: site plan with driveway layout, dimensioned ground floor plan, door schedules for aluminium and timber door types, circular ring-to-dome connection details, parapet wall drainage details, interior column reinforcement details, and stair section and stair construction details.",
+        heading: "Floor Plan",
+        images: [
+          {
+            url: "/images/eko-heritage/eko-ground-floor-plan.png",
+            caption: "Ground Floor plan",
+          },
+          {
+            url: "/images/eko-heritage/eko-door-schedule-plan.png",
+            caption: "Door schedule plan",
+          },
+        ],
       },
       {
         heading: "Spatial Organisation",
         body: "The ground floor plan radiates outward from the central dome rotunda. Gallery spaces, a library, staff offices, and a restaurant ring the perimeter. The building's gear-like footprint on the site plan creates alternating entry bays and planted zones, reinforcing the rhythmic character of the façade.",
+        images: [],
       },
     ],
   },
@@ -176,18 +236,7 @@ const projects: Project[] = [
       "In response to a client brief, the design incorporates a warm, contemporary kitchen featuring wood finishes, marble surfaces, integrated appliances, ample storage, a breakfast counter, and abundant natural light — creating a highly functional and visually refined space.",
     concept:
       "The kitchen balances warmth and precision. Dark-stained oak cabinetry provides visual weight; white Carrara marble countertops and splashback introduce luminosity. Floor-to-ceiling windows flood the worktop zone with natural light, while integrated appliances maintain the clean surface language.",
-    heroImage:
-      "/images/kitchen-interior-hero.png",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1656402887556-e727ffe1f6d7?w=1200&h=800&fit=crop&auto=format",
-        caption: "Breakfast nook and dining integration",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1666003449012-61951d621555?w=1200&h=800&fit=crop&auto=format",
-        caption: "Island counter and bar seating",
-      },
-    ],
+    heroImage: "/images/kitchen/kitchen-interior-hero.png",
     tags: ["Interior", "Residential", "Kitchen", "3D Visualization"],
     details: [
       { label: "Location", value: "Lagos" },
@@ -198,12 +247,41 @@ const projects: Project[] = [
     ],
     sections: [
       {
-        heading: "Material Strategy",
-        body: "Dark oak veneer cabinets are used for lower and upper storage units. The splashback is Carrara marble with pronounced veining, continuing as the countertop surface. Black slate tiles ground the floor plane. Integrated stainless steel appliances flush-mount into the cabinetry to preserve the cabinet grid logic.",
+        heading: "Elevations",
+        images: [
+          {
+            url: "/images/kitchen/elevation.png",
+            caption: "Elevation A and B",
+          },
+          {
+            url: "/images/kitchen/elevation-1.png",
+            caption: "Elevation B and C",
+          },
+        ],
+        imageDirection: "row",
       },
       {
         heading: "Lighting & Views",
-        body: "Large windows above the sink and alongside the worktop zone bring in diffuse northern light throughout the day, reducing reliance on artificial lighting during working hours. Recessed ceiling lights supplement at task zones. The breakfast counter cantilevers from the island, creating a casual dining position distinct from the formal dining area.",
+        body: "Large windows above the sink and alongside the worktop zone bring in diffuse northern light throughout the day, reducing reliance on artificial lighting during the day. Recessed ceiling lights supplement at task zones. The breakfast counter cantilevers from the island, creating a casual dining position distinct from the formal dining area.",
+        images: [
+          {
+            url: "/images/kitchen/kitchen-view-1.png",
+            caption: "Kitchen View A",
+          },
+          {
+            url: "/images/kitchen/kitchen-view-2.png",
+            caption: "Kitchen View B",
+          },
+        ],
+      },
+      {
+        heading: "Floor Plan",
+        images: [
+          {
+            url: "/images/kitchen/kitchen-floor-plan.png",
+            caption: "Floor plan",
+          },
+        ],
       },
     ],
   },
@@ -218,14 +296,7 @@ const projects: Project[] = [
       "TMP Hub is a co-working interior designed for a contemporary professional community. The design cultivates a sense of belonging through warm materials, flexible workspaces, and a strong brand identity expressed through the TMP sign installation.",
     concept:
       "The space is conceived as a warm, branded professional environment where natural materials — timber cladding, warm lighting, live plants — counterbalance the formality of a typical office. The reception zone doubles as a lounge, and work pods offer varying degrees of enclosure.",
-    heroImage:
-      "/images/cowork-space-hero.png",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?w=1200&h=800&fit=crop&auto=format",
-        caption: "Open plan workstation zone",
-      },
-    ],
+    heroImage: "/images/cowork-space/cowork-space-hero.png",
     tags: ["Interior", "Co-Working", "Commercial", "3D Visualization"],
     details: [
       { label: "Location", value: "Lagos" },
@@ -236,15 +307,46 @@ const projects: Project[] = [
     ],
     sections: [
       {
-        heading: "Brand & Identity",
-        body: "The TMP Hub identity is expressed through a large dimensional sign installation at the reception wall. The wordmark is mounted against a timber-slat panel, visible from the entry threshold. Brand colour runs as an accent through planters, soft furnishings, and the reception counter edge.",
+        heading: "Furniture Model A",
+        images: [
+          {
+            url: "/images/cowork-space/cowork-furniture-model-A1.png",
+            caption: "Furniture Model A",
+          },
+          {
+            url: "/images/cowork-space/cowork-tv.png",
+            caption: "1. TV Wall (Lounge area)",
+          },
+          {
+            url: "/images/cowork-space/cowork-bar-seating.png",
+            caption: "2. Bar Seating",
+          },
+        ],
       },
       {
-        heading: "Spatial Zones",
-        body: "The plan separates three distinct zones: an open hot-desk area with bench workstations; semi-private work pods with acoustic screens; and a lounge zone with casual seating near the reception. Natural planting is integrated throughout the plan to improve air quality and reduce acoustic reverberation.",
+        heading: "Furniture Model B",
+        images: [
+          {
+            url: "/images/cowork-space/cowork-furniture-B1.png",
+            caption: "Furniture Model B",
+          },
+          {
+            url: "/images/cowork-space/cowork-reception-desk.png",
+            caption: "3. Reception Desk",
+          },
+          {
+            url: "/images/cowork-space/cowork-meeting-area.png",
+            caption: "4. Informal Meeting Area",
+          },
+          {
+            url: "/images/cowork-space/cowork-work-space.png",
+            caption: "5. Work Space",
+          },
+        ],
+        imageDirection: "row",
       },
     ],
   },
-]
+];
 
-export default projects
+export default projects;

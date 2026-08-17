@@ -72,7 +72,8 @@ export default function ProjectPage({
           number={i + 1}
           heading={section.heading}
           body={section.body}
-          image={project.images[i]}
+          images={section.images}
+          imageDirection={section.imageDirection}
         />
       ))}
 
