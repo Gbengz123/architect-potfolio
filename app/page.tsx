@@ -137,6 +137,7 @@ export default function Home() {
       </section>
 
       {/* ── About ── */}
+      <div id="about"></div>
       <SplitSection label="Profile">
         <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[var(--rule)]">
           {/* Bio */}
