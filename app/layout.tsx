@@ -16,8 +16,8 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Olugbenga Simon-Peter",
-  description: "Portfolio",
+  title: "OSP Portfolio",
+  description: "Olungbenga Simon-Peter's Portfolio",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
