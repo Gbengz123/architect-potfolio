@@ -46,23 +46,28 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: was [iod-tower-corner, iod-locality] — tower-corner belongs to the
+        // Ground Floor spread further down, not the title page. This should be the
+        // title-page pairing: locality map (left) + entrance close-up (right).
+        // NOTE: verify alt/caption/aspect for iod-facade-detail — it was unused in
+        // your original file so I've written a best-guess based on the PDF crop
+        // (the "O D" brick/glass close-up above the street-level entrance shot).
         kind: "media",
         layout: "duo",
         surface: "paper",
         images: [
-          {
-            src: "/images/IOD/iod-tower-corner.webp",
-            alt: "Corner view of the tower, adaptive panels covering the west elevation and brick to the south",
-            caption:
-              "Corner approach — the adaptive skin turns the corner and stops",
-            aspect: "1197/1655",
-          },
           {
             src: "/images/IOD/iod-locality.webp",
             alt: "Locality plan showing the site outlined in red at the junction of Olu Holloway Road and Mobolaji Johnson Avenue",
             caption: "Locality plan",
             fit: "contain",
             aspect: "1139/924",
+          },
+          {
+            src: "/images/IOD/iod-facade-detail.webp",
+            alt: "Close-up of the tower's brick and glass corner, showing the perforated brick screen and the OD lettering above the entrance",
+            caption: "The corner, close up",
+            aspect: "3/4", // VERIFY: placeholder aspect ratio, check actual image dimensions
           },
         ],
       },
@@ -181,6 +186,8 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — diagram, sketch, then the two panel photos, matches
+        // the "Adaptive Facade Concept" spread reading order.
         kind: "media",
         layout: "grid",
         surface: "sheet",
@@ -214,15 +221,22 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: PDF order on this spread is Ground Floor Plan (top-left) →
+        // "LEFT VIEW" elevation (bottom-left) → big tower render (right).
+        // Was [tower-corner, elevation-side, plan-ground]; also switched
+        // longImagePosition to "right" since the tall photo sits on the right
+        // in the source spread.
         kind: "media",
         layout: "asymmetric",
-        longImagePosition: "left",
+        longImagePosition: "right",
         surface: "paper",
         images: [
           {
-            src: "/images/IOD/iod-tower-corner.webp",
-            alt: "The Institute of Directors tower seen from the street corner, the adaptive façade in shadow against brick",
-            aspect: "1197/1655",
+            src: "/images/IOD/iod-plan-ground.webp",
+            alt: "Ground floor plan showing the banking hall, teller desks, cash vault, cafeteria, reception lobby and surface parking",
+            caption: "Ground floor — banking hall, cafeteria, lobby, parking",
+            fit: "contain",
+            aspect: "1285/714",
           },
           {
             src: "/images/IOD/iod-elevation-side.webp",
@@ -232,33 +246,33 @@ const projects: Project[] = [
             aspect: "1289/631",
           },
           {
-            src: "/images/IOD/iod-plan-ground.webp",
-            alt: "Ground floor plan showing the banking hall, teller desks, cash vault, cafeteria, reception lobby and surface parking",
-            caption: "Ground floor — banking hall, cafeteria, lobby, parking",
-            fit: "contain",
-            aspect: "1285/714",
+            src: "/images/IOD/iod-tower-corner.webp",
+            alt: "The Institute of Directors tower seen from the street corner, the adaptive façade in shadow against brick",
+            aspect: "1197/1655",
           },
         ],
       },
       {
+        // FIXED: same correction for the First Floor spread — plan, then
+        // "FRONT VIEW" elevation, then the big tower render.
         kind: "media",
         layout: "asymmetric",
         longImagePosition: "right",
         surface: "paper",
         images: [
           {
-            src: "/images/IOD/iod-elevation-front.webp",
-            alt: "Side elevation showing the full extent of the adaptive panel field across the west face",
-            caption: "Side elevation",
-            fit: "contain",
-            aspect: "1289/631",
-          },
-          {
             src: "/images/IOD/iod-plan-first.webp",
             alt: "Ground floor plan showing the banking hall, teller desks, cash vault, cafeteria, reception lobby and surface parking",
             caption: "Ground floor — banking hall, cafeteria, lobby, parking",
             fit: "contain",
             aspect: "1285/714",
+          },
+          {
+            src: "/images/IOD/iod-elevation-front.webp",
+            alt: "Side elevation showing the full extent of the adaptive panel field across the west face",
+            caption: "Side elevation",
+            fit: "contain",
+            aspect: "1289/631",
           },
           {
             src: "/images/IOD/iod-tower-front.webp",
@@ -268,6 +282,7 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — plan then the outdoor terrace photo.
         kind: "media",
         layout: "duo",
         surface: "paper",
@@ -291,16 +306,22 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: PDF reading order on the final spread is longitudinal section
+        // (top-left) → panel exploded diagram (top-right) → third floor plan
+        // (bottom-left) → interior photo (bottom-right). Was
+        // [plan-third, panel-exploded, facade-section, interior-office].
         kind: "media",
         layout: "grid",
         surface: "paper",
         images: [
           {
-            src: "/images/IOD/iod-plan-third.webp",
-            alt: "Second floor plan showing the banquet hall, retail store, display area and the outdoor lounge on the podium roof",
-            caption: "Second floor — banquet hall, retail, outdoor lounge",
+            src: "/images/IOD/iod-facade-section.webp",
+            alt: "Longitudinal section through two floor plates showing the strut sleeves passing through the curtain wall to support the fabric mesh frames",
+            caption: "Longitudinal section at the façade",
             fit: "contain",
-            aspect: "800/514",
+            aspect: "1925/1013",
+            mobileAspect: "1925/1013",
+            pan: true,
           },
           {
             src: "/images/IOD/iod-panel-exploded.webp",
@@ -313,13 +334,11 @@ const projects: Project[] = [
             span: "half",
           },
           {
-            src: "/images/IOD/iod-facade-section.webp",
-            alt: "Longitudinal section through two floor plates showing the strut sleeves passing through the curtain wall to support the fabric mesh frames",
-            caption: "Longitudinal section at the façade",
+            src: "/images/IOD/iod-plan-third.webp",
+            alt: "Second floor plan showing the banquet hall, retail store, display area and the outdoor lounge on the podium roof",
+            caption: "Second floor — banquet hall, retail, outdoor lounge",
             fit: "contain",
-            aspect: "1925/1013",
-            mobileAspect: "1925/1013",
-            pan: true,
+            aspect: "800/514",
           },
           {
             src: "/images/IOD/iod-interior-office.webp",
@@ -378,16 +397,12 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: title page is locality map (left) → aerial render (right).
+        // Was [aerial, locality].
         kind: "media",
         layout: "duo",
         surface: "paper",
         images: [
-          {
-            src: "/images/vinix/vinix-aerial.webp",
-            alt: "Aerial view of the circular campus, its petal roofs opening around a central court, with chalets and courts in the landscape beyond",
-            caption: "The campus from above — the ring and its landscape",
-            aspect: "1064/1543",
-          },
           {
             src: "/images/vinix/vinix-locality.webp",
             alt: "Locality plan of the Eko Atlantic site, the plot outlined against the reclaimed shoreline",
@@ -396,9 +411,16 @@ const projects: Project[] = [
             aspect: "1139/1020",
             surface: "sheet",
           },
+          {
+            src: "/images/vinix/vinix-aerial.webp",
+            alt: "Aerial view of the circular campus, its petal roofs opening around a central court, with chalets and courts in the landscape beyond",
+            caption: "The campus from above — the ring and its landscape",
+            aspect: "1064/1543",
+          },
         ],
       },
       {
+        // Already correct — Ground Floor Plan then Second Floor Plan.
         kind: "notes",
         label: "01 — Plan",
         heading: "Floor Plan",
@@ -421,20 +443,14 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: "Concept" heading is the left column, "Axonometric view" is
+        // the right column — was [axonometric, concept].
         kind: "notes",
         label: "02 — Concept",
         heading: "Design Concept",
         surface: "sheet",
         body: "The design concept is based on the idea of integration between work, creativity, and relaxation. The project is conceived as a dynamic hub where professional activities, innovation, and leisure coexist within a unified environment.",
         images: [
-          {
-            src: "/images/vinix/vinix-axonometric.webp",
-            alt: "Exploded axonometric of the circular building, annotated with timber fins, brick façade, timber grills, glazed sky bridge and planters",
-            caption: "Exploded axonometric",
-            fit: "contain",
-            aspect: "1489/787",
-            mobileAspect: "1489/787",
-          },
           {
             src: "/images/vinix/vinix-concept.webp",
             alt: "Concept diagram showing work, create and relax zones arranged around a central green court, with natural light and material notes",
@@ -443,9 +459,18 @@ const projects: Project[] = [
             aspect: "1519/796",
             mobileAspect: "1519/796",
           },
+          {
+            src: "/images/vinix/vinix-axonometric.webp",
+            alt: "Exploded axonometric of the circular building, annotated with timber fins, brick façade, timber grills, glazed sky bridge and planters",
+            caption: "Exploded axonometric",
+            fit: "contain",
+            aspect: "1489/787",
+            mobileAspect: "1489/787",
+          },
         ],
       },
       {
+        // Already correct — main photo then the glass material swatch.
         kind: "media",
         layout: "duo",
         surface: "sheet",
@@ -470,6 +495,7 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — main dusk photo then the timber material swatch.
         kind: "media",
         layout: "duo",
         surface: "sheet",
@@ -494,17 +520,12 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: "Challet Design" spread is plan (left) → photo (right).
+        // Was [chalet photo, chalet plan].
         kind: "media",
         layout: "duo",
         surface: "sheet",
         images: [
-          {
-            src: "/images/vinix/vinix-chalet.webp",
-            alt: "A brick chalet at dusk with timber-screened windows and a lit interior spilling onto the terrace",
-            caption: "Chalet",
-            aspect: "1533/868",
-            main: true,
-          },
           {
             src: "/images/vinix/vinix-plan-chalet.webp",
             alt: "Curved chalet plan with two bedrooms, two toilets, a kitchen and a living room arranged along an arc",
@@ -512,9 +533,17 @@ const projects: Project[] = [
             fit: "contain",
             aspect: "1200/604",
           },
+          {
+            src: "/images/vinix/vinix-chalet.webp",
+            alt: "A brick chalet at dusk with timber-screened windows and a lit interior spilling onto the terrace",
+            caption: "Chalet",
+            aspect: "1533/868",
+            main: true,
+          },
         ],
       },
       {
+        // Already correct — "Leisure Area Design" spread is plan then photo.
         kind: "media",
         layout: "duo",
         surface: "sheet",
@@ -587,8 +616,79 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED (moved + renumbered): in the PDF this "Site Plan / Ground Floor
+        // Plan" spread is the FIRST content spread after the title page —
+        // it was previously block 2 but numbered "01" while Dome Components
+        // (which appears last in the PDF) was placed first. Moved here as "01".
+        kind: "media",
+        layout: "duo",
+        surface: "sheet",
+        label: "01 — Setting out",
+        heading: "Site and plan",
+        body: "The building's gear-like footprint alternates entry bays with planted pockets. Gallery spaces, library, offices and restaurant ring the central rotunda, so the dome is read from every room.",
+        images: [
+          {
+            src: "/images/eko-heritage/eko-site-plan.webp",
+            alt: "Site plan with the proposed building outlined inside a red dashed boundary, the hatched driveway running along the western edge",
+            caption: "Site plan — boundary, driveway and setting out",
+            fit: "contain",
+            aspect: "1368/1659",
+            mobileAspect: "1368/1659",
+            pan: true,
+          },
+          {
+            src: "/images/eko-heritage/eko-plan-ground.webp",
+            alt: "Ground floor construction plan showing the radiating gallery bays around the central rotunda, with grid lines and section marks",
+            caption: "Ground floor — gridded and dimensioned",
+            fit: "contain",
+            aspect: "1601/1393",
+            mobileAspect: "1601/1393",
+            pan: true,
+          },
+        ],
+      },
+      {
+        // FIXED (renumbered "02" — was "03"): Door Schedule is the second
+        // spread in the PDF, right after Site/Ground Floor Plan.
+        kind: "table",
+        label: "02 — Schedule",
+        heading: "Door schedule",
+        surface: "paper",
+        body: "Three door types serve the whole building. The schedule plan tags each opening; the schedule itself fixes what gets ordered.",
+        columns: ["Type", "Description", "Location"],
+        rows: [
+          [
+            "AD 1",
+            "Aluminium door — 6 mm thick composite aluminium single-leaf glazed swing door with float-frame, sub-frame and 6 mm heavy-duty glass, complete with heavy-duty door closer and door viewer",
+            "Ground floor, first floor, second floor",
+          ],
+          [
+            "TD 1",
+            "Timber door — 44 mm thick single-leaf, semi-solid core polished timber flush door, with veneered facings on both sides and hardwood lipping, complete with ironmongery set to architect's approval",
+            "Ground floor, basement floor",
+          ],
+          [
+            "TD 2",
+            "Timber door — 44 mm thick single-leaf, semi-solid core polished timber flush door, with veneered facings on both sides and hardwood lipping, complete with ironmongery set to architect's approval",
+            "Ground floor",
+          ],
+        ],
+        image: {
+          src: "/images/eko-heritage/eko-plan-doors.webp",
+          alt: "Door schedule plan, each door position tagged in orange across the radiating ground floor",
+          caption: "Door schedule plan — every opening tagged",
+          fit: "contain",
+          aspect: "1663/1682",
+          mobileAspect: "1663/1682",
+          pan: true,
+        },
+      },
+      {
+        // FIXED (renumbered "03" — was "01"): Dome Components is the LEFT
+        // column of the final spread in the PDF (Dome Components | Details),
+        // so it now comes after the Schedule and directly precedes Details.
         kind: "notes",
-        label: "01 — Structure",
+        label: "03 — Structure",
         heading: "The dome, taken apart",
         surface: "sheet",
         body: "Read from the top down, the dome is five separable layers. Drawing it this way meant each could be specified, procured and installed on its own.",
@@ -629,68 +729,9 @@ const projects: Project[] = [
         ],
       },
       {
-        kind: "media",
-        layout: "duo",
-        surface: "sheet",
-        label: "02 — Setting out",
-        heading: "Site and plan",
-        body: "The building's gear-like footprint alternates entry bays with planted pockets. Gallery spaces, library, offices and restaurant ring the central rotunda, so the dome is read from every room.",
-        images: [
-          {
-            src: "/images/eko-heritage/eko-site-plan.webp",
-            alt: "Site plan with the proposed building outlined inside a red dashed boundary, the hatched driveway running along the western edge",
-            caption: "Site plan — boundary, driveway and setting out",
-            fit: "contain",
-            aspect: "1368/1659",
-            mobileAspect: "1368/1659",
-            pan: true,
-          },
-          {
-            src: "/images/eko-heritage/eko-plan-ground.webp",
-            alt: "Ground floor construction plan showing the radiating gallery bays around the central rotunda, with grid lines and section marks",
-            caption: "Ground floor — gridded and dimensioned",
-            fit: "contain",
-            aspect: "1601/1393",
-            mobileAspect: "1601/1393",
-            pan: true,
-          },
-        ],
-      },
-      {
-        kind: "table",
-        label: "03 — Schedule",
-        heading: "Door schedule",
-        surface: "paper",
-        body: "Three door types serve the whole building. The schedule plan tags each opening; the schedule itself fixes what gets ordered.",
-        columns: ["Type", "Description", "Location"],
-        rows: [
-          [
-            "AD 1",
-            "Aluminium door — 6 mm thick composite aluminium single-leaf glazed swing door with float-frame, sub-frame and 6 mm heavy-duty glass, complete with heavy-duty door closer and door viewer",
-            "Ground floor, first floor, second floor",
-          ],
-          [
-            "TD 1",
-            "Timber door — 44 mm thick single-leaf, semi-solid core polished timber flush door, with veneered facings on both sides and hardwood lipping, complete with ironmongery set to architect's approval",
-            "Ground floor, basement floor",
-          ],
-          [
-            "TD 2",
-            "Timber door — 44 mm thick single-leaf, semi-solid core polished timber flush door, with veneered facings on both sides and hardwood lipping, complete with ironmongery set to architect's approval",
-            "Ground floor",
-          ],
-        ],
-        image: {
-          src: "/images/eko-heritage/eko-plan-doors.webp",
-          alt: "Door schedule plan, each door position tagged in orange across the radiating ground floor",
-          caption: "Door schedule plan — every opening tagged",
-          fit: "contain",
-          aspect: "1663/1682",
-          mobileAspect: "1663/1682",
-          pan: true,
-        },
-      },
-      {
+        // Stays "04" — already last, and internal image order (ring, parapet,
+        // column, stair) already matches the PDF's top-left→bottom-right
+        // reading order. No change to the images array.
         kind: "media",
         layout: "grid",
         surface: "sheet",
@@ -784,20 +825,10 @@ const projects: Project[] = [
         ],
       },
       {
-        kind: "media",
-        layout: "bleed",
-        surface: "paper",
-        images: [
-          {
-            src: "/images/kitchen/kitchen-render-main.webp",
-            alt: "Wide view of the kitchen showing the full L of cabinetry, the marble splashback behind the range, and the window over the sink",
-            caption: "The L, seen whole",
-            aspect: "2/1",
-            mobileAspect: "4/3",
-          },
-        ],
-      },
-      {
+        // MOVED (was directly after Overview): the PDF has Floor Plan +
+        // Elevations as the spread right after the title page, and this
+        // full-bleed wide render only appears on the spread AFTER that
+        // (paired with the materials strip). Relocated below Elevations.
         kind: "notes",
         label: "01 — Plan",
         heading: "A compact footprint",
@@ -872,6 +903,26 @@ const projects: Project[] = [
         ],
       },
       {
+        // MOVED here from right after Overview — this is the "the L, seen
+        // whole" wide render that sits alongside the materials strip in the
+        // PDF, appearing after Floor Plan/Elevations.
+        kind: "media",
+        layout: "bleed",
+        surface: "paper",
+        images: [
+          {
+            src: "/images/kitchen/kitchen-render-main.webp",
+            alt: "Wide view of the kitchen showing the full L of cabinetry, the marble splashback behind the range, and the window over the sink",
+            caption: "The L, seen whole",
+            aspect: "2/1",
+            mobileAspect: "4/3",
+          },
+        ],
+      },
+      {
+        // Already correct order — wood, marble, floor tile, appliances,
+        // handles (matches the PDF materials strip top-to-bottom), then the
+        // colour swatches in the same left-to-right order as the palette page.
         kind: "materials",
         label: "03 — Materials",
         heading: "Warm above, dark below",
@@ -911,6 +962,8 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — bar seating, marble counter, tap, storage matches
+        // the PDF's "Key features" grid reading order.
         kind: "media",
         layout: "grid",
         surface: "paper",
@@ -1013,16 +1066,12 @@ const projects: Project[] = [
         ],
       },
       {
+        // FIXED: title page is the locality/street map (left) → lounge photo
+        // (right). Was [lounge, locality].
         kind: "media",
         layout: "duo",
         surface: "paper",
         images: [
-          {
-            src: "/images/cowork-space/cowork-lounge.webp",
-            alt: "The lounge corner with upholstered benches, an orange pouffe and a timber coffee table against the slat wall",
-            caption: "The lounge, as built",
-            aspect: "990/1434",
-          },
           {
             src: "/images/cowork-space/cowork-locality.webp",
             alt: "Locality plan of the Gudu site in Abuja with the plot marked between Oladipo Diya Street and Olaniran Olayinka Street",
@@ -1030,6 +1079,12 @@ const projects: Project[] = [
             fit: "contain",
             aspect: "1139/1020",
             surface: "sheet",
+          },
+          {
+            src: "/images/cowork-space/cowork-lounge.webp",
+            alt: "The lounge corner with upholstered benches, an orange pouffe and a timber coffee table against the slat wall",
+            caption: "The lounge, as built",
+            aspect: "990/1434",
           },
         ],
       },
@@ -1062,6 +1117,7 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — 1. TV Wall then 2. Bar seating.
         kind: "media",
         layout: "duo",
         surface: "paper",
@@ -1116,6 +1172,7 @@ const projects: Project[] = [
         ],
       },
       {
+        // Already correct — 3. Reception, 4. Meeting, 5. Workspace.
         kind: "media",
         layout: "grid",
         surface: "paper",
