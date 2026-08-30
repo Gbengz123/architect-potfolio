@@ -6,4 +6,13 @@ export {
   leadership,
 } from "@/data/skills";
 export { default as projects } from "@/data/projects";
-export type { Project } from "@/data/projects";
+export type {
+  Project,
+  ProjectBlock,
+  ProjectImage,
+  ImageFit,
+  Surface,
+  MediaLayout,
+  Note,
+  MaterialItem,
+} from "@/data/types";

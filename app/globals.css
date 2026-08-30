@@ -1,34 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0d0d0d;
-  --paper: #f4f1ec;
-  --muted: #8c8680;
-  --rule: #d6d0c8;
-  --card: #edebe5;
-  --accent: #0d0d0d;
+  /* Base palette — warm architectural paper and ink */
+  --ink: #14120f;
+  --paper: #f2efe9;
+  --sheet: #ffffff;
+  --muted: #8a827a;
+  --rule: #ddd7cd;
+  --card: #eae6de;
+  --accent: #14120f;
   --radius: 0px;
+
+  /* Default surface context (paper). Sections override these. */
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --line: var(--rule);
+  --dim: var(--muted);
 }
 
 * {
   box-sizing: border-box;
 }
 
-
-
 body {
   background-color: var(--paper);
   color: var(--ink);
   margin: 0;
   padding: 0;
-
   font-family: var(--font-inter), system-ui, sans-serif;
-
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -39,11 +45,133 @@ body {
   background: var(--rule);
 }
 
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 .display {
   font-family: var(--font-barlow-condensed), sans-serif;
 }
 
-::selection {
-  background: var(--ink);
-  color: var(--paper);
+/* ── Surfaces ─────────────────────────────────────────────
+   Sections declare a surface; every child reads --fg/--line/--dim
+   so drawings can sit on true white and renders on warm black. */
+
+.surface {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.surface-paper {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --line: var(--rule);
+  --dim: var(--muted);
+}
+
+.surface-sheet {
+  --bg: var(--sheet);
+  --fg: var(--ink);
+  --line: #e9e5dd;
+  --dim: #97907f;
+}
+
+.surface-ink {
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --line: rgba(242, 239, 233, 0.16);
+  --dim: rgba(242, 239, 233, 0.55);
+}
+
+/* ── Editorial type ──────────────────────────────────────── */
+
+.label {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.heading {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-size: clamp(1.75rem, 3.4vw, 3rem);
+}
+
+.lead {
+  font-size: clamp(1.0625rem, 1.55vw, 1.375rem);
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+}
+
+.copy {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: var(--fg);
+}
+
+.caption {
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--dim);
+}
+
+/* ── Figures ──────────────────────────────────────────────
+   Aspect is data-driven: --ar for >=768px, --ar-m below. */
+
+.fig {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ar-m, var(--ar, 4 / 3));
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .fig {
+    aspect-ratio: var(--ar, 4 / 3);
+  }
+}
+
+/* Wide technical drawings pan horizontally on small screens
+   rather than shrinking below legibility. The min/max-width pair stops a
+   680px child from stretching its grid track and scrolling the page. */
+.pan {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .pan {
+    overflow: visible;
+  }
+}
+
+.pan-inner {
+  min-width: 680px;
+}
+
+@media (min-width: 768px) {
+  .pan-inner {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

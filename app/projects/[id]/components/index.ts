@@ -1,5 +1,12 @@
+export { default as Figure } from "./Figure";
+export { default as SectionShell } from "./SectionShell";
 export { default as ProjectHero } from "./ProjectHero";
+export { default as ProjectMeta } from "./ProjectMeta";
+export { default as ProjectBlocks } from "./ProjectBlocks";
+export { default as ProjectColophon } from "./ProjectColophon";
 export { default as NextProject } from "./NextProject";
-export { default as ProjectDetailSection } from "./ProjectDetailSection";
-export { default as ProjectHeroImage } from "./ProjectHeroImage";
-export { default as ProjectIntro } from "./ProjectIntro";
+export { default as TextBlock } from "./TextBlock";
+export { default as MediaBlock } from "./MediaBlock";
+export { default as NotesBlock } from "./NotesBlock";
+export { default as MaterialsBlock } from "./MaterialsBlock";
+export { default as TableBlock } from "./TableBlock";
