@@ -9,7 +9,7 @@ export default function TextBlock({ block }: { block: TextBlockData }) {
 
   return (
     <section
-      className={`${surfaceClass[block.surface ?? "paper"]} py-16 md:py-24 lg:py-32`}
+      className={`${surfaceClass[block.surface ?? "paper"]} py-8 md:py-10 lg:py-14`}
     >
       <div className="px-6 md:px-12">
         <div className="grid gap-x-10 gap-y-6 md:grid-cols-[11rem_minmax(0,1fr)] lg:grid-cols-[14rem_minmax(0,1fr)]">

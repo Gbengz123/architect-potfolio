@@ -33,8 +33,8 @@ export default function SectionShell({
 }: SectionShellProps) {
   const hasHeader = Boolean(label || heading || body);
   const pad = compact
-    ? "py-10 md:py-14"
-    : "py-16 md:py-24 lg:py-28";
+    ? "py-5 md:py-7"
+    : "py-8 md:py-12 lg:py-14";
 
   return (
     <section className={`${surfaceClass[surface]} ${pad}`}>

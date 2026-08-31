@@ -6,7 +6,7 @@ import type { Project } from "@/data/types";
 /** Closing note: the idea restated once the images have made their case. */
 export default function ProjectColophon({ project }: { project: Project }) {
   return (
-    <section className="surface surface-paper border-t border-[var(--line)] py-16 md:py-24">
+    <section className="surface surface-paper border-t border-[var(--line)] py-8 md:py-12">
       <div className="px-6 md:px-12">
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-[11rem_minmax(0,1fr)] lg:grid-cols-[14rem_minmax(0,1fr)]">
           <FadeIn>
