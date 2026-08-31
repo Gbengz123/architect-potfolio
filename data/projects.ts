@@ -407,10 +407,10 @@ const projects: Project[] = [
         // Was [aerial, locality].
         kind: "media",
         layout: "duo",
-        surface: "paper",
+        surface: "sheet",
         images: [
           {
-            src: "/images/vinix/vinix-locality.webp",
+            src: "/images/vinix/vinix-locality.png",
             alt: "Locality plan of the Eko Atlantic site, the plot outlined against the reclaimed shoreline",
             caption: "Eko Atlantic — the site against the shoreline",
             fit: "contain",
@@ -671,23 +671,44 @@ const projects: Project[] = [
         heading: "Door schedule",
         surface: "sheet",
         body: "Three door types serve the whole building. The schedule plan tags each opening; the schedule itself fixes what gets ordered.",
-        columns: ["Type", "Description", "Location"],
+        columns: ["Type / Elevation", "Description", "Location"],
         rows: [
-          [
-            "AD 1",
-            "Aluminium door — 60mm thick composite aluminum single leaf inward swing door, with fixed panel above, complete with heavy duty door closer & door viewer",
-            "Ground floor, first floor, second floor",
-          ],
-          [
-            "TD 1",
-            "Timber door — 44mm thick single leaf, semi solid core polished timber flush door, with h/w lipping on all edges complete with stainless steel ironmongery set to architects approval",
-            "Ground floor, basement floor",
-          ],
-          [
-            "TD 2",
-            "Timber door — 44mm thick single leaf, semi solid core polished timber flush door, with h/w lipping on all edges complete with stainless steel ironmongery set to architects approval",
-            "Ground floor",
-          ],
+          {
+            cells: [
+              "AD 1",
+              "Aluminium door — 60mm thick composite aluminum single leaf inward swing door, with fixed panel above, complete with heavy duty door closer & door viewer",
+              "Ground floor, first floor, second floor",
+            ],
+            image: {
+              src: "/images/eko-heritage/door-ad1.png",
+              alt: "AD 1 aluminium double door elevation with fixed panel above and dimensions",
+              surface: "sheet",
+            },
+          },
+          {
+            cells: [
+              "TD 1",
+              "Timber door — 44mm thick single leaf, semi solid core polished timber flush door, with h/w lipping on all edges complete with stainless steel ironmongery set to architects approval",
+              "Ground floor, basement floor",
+            ],
+            image: {
+              src: "/images/eko-heritage/door-td1.png",
+              alt: "TD 1 timber single door elevation with dimensions",
+              surface: "sheet",
+            },
+          },
+          {
+            cells: [
+              "TD 2",
+              "Timber door — 44mm thick single leaf, semi solid core polished timber flush door, with h/w lipping on all edges complete with stainless steel ironmongery set to architects approval",
+              "Ground floor",
+            ],
+            image: {
+              src: "/images/eko-heritage/door-td2.png",
+              alt: "TD 2 timber single door elevation with dimensions",
+              surface: "sheet",
+            },
+          },
         ],
         image: {
           src: "/images/eko-heritage/eko-plan-doors.webp",
@@ -938,7 +959,7 @@ const projects: Project[] = [
         surface: "paper",
         images: [
           {
-            src: "/images/kitchen/kitchen-render-main.webp",
+            src: "/images/kitchen/kitchen-render-main.tiff",
             alt: "Wide view of the kitchen showing the full L of cabinetry, the marble splashback behind the range, and the window over the sink",
             caption: "The L, seen whole",
             aspect: "2/1",
@@ -1097,10 +1118,10 @@ const projects: Project[] = [
         // (right). Was [lounge, locality].
         kind: "media",
         layout: "duo",
-        surface: "paper",
+        surface: "sheet",
         images: [
           {
-            src: "/images/cowork-space/cowork-locality.webp",
+            src: "/images/cowork-space/cowork-locality1.png",
             alt: "Locality plan of the Gudu site in Abuja with the plot marked between Oladipo Diya Street and Olaniran Olayinka Street",
             caption: "Gudu, Abuja",
             fit: "contain",
@@ -1124,12 +1145,12 @@ const projects: Project[] = [
         numbered: true,
         images: [
           {
-            src: "/images/cowork-space/cowork-model-lounge.webp",
+            src: "/images/cowork-space/cowork-model-lounge.png",
             alt: "Line axonometric model of the lounge showing the slatted TV wall, open steel shelving units and the bar counter, numbered one and two",
             caption: "Lounge furniture model",
             fit: "contain",
             surface: "sheet",
-            aspect: "1424/708",
+            aspect: "1289/1140",
           },
         ],
         notes: [
@@ -1174,7 +1195,7 @@ const projects: Project[] = [
         startAt: 3,
         images: [
           {
-            src: "/images/cowork-space/cowork-model-work.webp",
+            src: "/images/cowork-space/cowork-model-work.png",
             alt: "Wide line axonometric model of the workspace showing desks, screens and open steel shelving units numbered three, four and five",
             caption: "Workspace furniture model",
             fit: "contain",

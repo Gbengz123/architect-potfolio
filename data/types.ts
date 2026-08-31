@@ -106,6 +106,12 @@ export interface MaterialsBlock extends BaseBlock {
   items: MaterialItem[];
 }
 
+export interface TableRow {
+  cells: string[];
+  /** Compact reference drawing shown alongside the row's type label. */
+  image?: ProjectImage;
+}
+
 /** Schedules and other tabular content that must not stay an image. */
 export interface TableBlock extends BaseBlock {
   kind: "table";
@@ -113,7 +119,7 @@ export interface TableBlock extends BaseBlock {
   heading: string;
   body?: string;
   columns: string[];
-  rows: string[][];
+  rows: TableRow[];
   image?: ProjectImage;
 }
 
