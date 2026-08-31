@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
 import { FadeIn } from "@/animations";
+import SuspenseImage from "@/app/components/SuspenseImage";
 import type { MaterialsBlock as MaterialsBlockData } from "@/data/types";
 import SectionShell from "./SectionShell";
 
@@ -27,7 +26,7 @@ export default function MaterialsBlock({
             <FadeIn key={item.name} delay={Math.min(i, 5) * 0.05}>
               <li>
                 <div className="relative aspect-4/3 w-full overflow-hidden">
-                  <Image
+                  <SuspenseImage
                     src={item.src as string}
                     alt={`${item.name} sample`}
                     fill

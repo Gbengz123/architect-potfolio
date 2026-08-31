@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, type MotionValue } from "motion/react";
 import type { RefObject } from "react";
 
+import SuspenseImage from "@/app/components/SuspenseImage";
 import type { Project } from "@/data/types";
 
 type ProjectHeroProps = {
@@ -31,12 +31,13 @@ export default function ProjectHero({
       className="relative h-[100svh] min-h-[520px] overflow-hidden bg-[var(--ink)]"
     >
       <motion.div className="absolute inset-0" style={{ y: heroY }}>
-        <Image
+        <SuspenseImage
           src={project.hero.src}
           alt={project.hero.alt}
           fill
           priority
           sizes="100vw"
+          skeletonTone="dark"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)]/85 via-[var(--ink)]/25 to-[var(--ink)]/45" />

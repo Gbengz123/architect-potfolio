@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import type { CSSProperties } from "react";
 
+import SuspenseImage from "@/app/components/SuspenseImage";
 import type { ProjectImage, Surface } from "@/data/types";
 
 export const surfaceClass: Record<Surface, string> = {
@@ -64,7 +64,7 @@ export default function Figure({
           ease: [0.22, 1, 0.36, 1],
         }}
       >
-        <Image
+        <SuspenseImage
           src={image.src}
           alt={image.alt}
           fill

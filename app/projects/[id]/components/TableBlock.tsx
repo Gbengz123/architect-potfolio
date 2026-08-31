@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
 import { FadeIn } from "@/animations";
+import SuspenseImage from "@/app/components/SuspenseImage";
 import type {
   ProjectImage,
   TableBlock as TableBlockData,
@@ -13,7 +12,7 @@ import SectionShell from "./SectionShell";
 function RowImage({ image }: { image: ProjectImage }) {
   return (
     <div className="relative h-24 w-20 shrink-0 overflow-hidden border border-[var(--line)] bg-white">
-      <Image
+      <SuspenseImage
         src={image.src}
         alt={image.alt}
         fill

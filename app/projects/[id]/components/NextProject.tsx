@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "motion/react";
 
+import SuspenseImage from "@/app/components/SuspenseImage";
 import type { Project } from "@/data/types";
 
 function NextProject({ project }: { project: Project }) {
@@ -21,11 +21,12 @@ function NextProject({ project }: { project: Project }) {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image
+            <SuspenseImage
               src={project.cover.src}
               alt={project.cover.alt}
               fill
               sizes="100vw"
+              skeletonTone="dark"
               className="object-cover"
             />
           </motion.div>

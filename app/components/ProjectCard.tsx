@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "motion/react";
 import type { Project } from "@/data";
+import SuspenseImage from "./SuspenseImage";
 
 function ProjectCard({
   project,
@@ -69,7 +69,7 @@ function ProjectCard({
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Image
+              <SuspenseImage
                 src={project.cover.src}
                 alt={project.cover.alt}
                 className="object-cover"

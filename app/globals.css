@@ -122,6 +122,42 @@ body {
   color: var(--dim);
 }
 
+/* ── Image loading ─────────────────────────────────────────
+   Suspense handles deferred rendering; this shimmer remains until the
+   underlying image has downloaded and decoded. */
+
+.image-skeleton {
+  --skeleton-base: color-mix(in srgb, var(--line) 68%, var(--bg));
+  --skeleton-highlight: color-mix(in srgb, var(--bg) 72%, white);
+  overflow: hidden;
+  background: var(--skeleton-base);
+}
+
+.image-skeleton-dark {
+  --skeleton-base: #24211d;
+  --skeleton-highlight: rgba(255, 255, 255, 0.12);
+}
+
+.image-skeleton::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-highlight),
+    transparent
+  );
+  animation: image-skeleton-shimmer 1.45s ease-in-out infinite;
+}
+
+@keyframes image-skeleton-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
 /* ── Figures ──────────────────────────────────────────────
    Aspect is data-driven: --ar for >=768px, --ar-m below. */
 

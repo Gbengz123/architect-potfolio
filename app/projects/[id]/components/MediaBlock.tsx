@@ -3,7 +3,6 @@
 import type { MediaBlock as MediaBlockData, ProjectImage } from "@/data/types";
 import Figure from "./Figure";
 import SectionShell from "./SectionShell";
-import Image from "next/image";
 
 /** Accurate `sizes` per composition — the browser should never fetch
  *  a 2400px file to paint a quarter-width drawing. */

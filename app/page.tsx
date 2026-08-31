@@ -14,7 +14,7 @@ import { FadeIn, RevealText } from "@/animations";
 import ProjectCard from "@/app/components/ProjectCard";
 import SplitSection from "@/app/components/SplitSection";
 import SectionLabel from "@/app/components/SectionLabel";
-import Image from "next/image";
+import SuspenseImage from "@/app/components/SuspenseImage";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -34,12 +34,13 @@ export default function Home() {
       >
         {/* BG image with parallax */}
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
-          <Image
+          <SuspenseImage
             src="/images/hero.jpg"
             alt="Hero image"
             fill
             sizes="100vw"
             loading="eager"
+            skeletonTone="dark"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-(--ink)/80 via-[var(--ink)]/20 to-transparent" />
