@@ -65,12 +65,21 @@ function ProjectCard({
 
               <span className="display inline-flex shrink-0 items-center gap-3 border border-[var(--ink)] px-4 py-2.5 text-xs font-bold tracking-[0.14em] uppercase transition-colors duration-300 group-hover:bg-[var(--ink)] group-hover:text-[var(--paper)] group-focus-visible:bg-[var(--ink)] group-focus-visible:text-[var(--paper)]">
                 View project
-                <span
+                <svg
                   aria-hidden="true"
-                  className="text-base leading-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5"
+                  focusable="false"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5"
                 >
-                  ↗
-                </span>
+                  <path
+                    d="M4 12 12 4M6 4h6v6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                  />
+                </svg>
               </span>
             </div>
           </div>
