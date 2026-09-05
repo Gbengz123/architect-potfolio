@@ -18,9 +18,11 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="group"
     >
-      <Link href={`/projects/${project.id}`} className="block">
+      <Link
+        href={`/projects/${project.id}`}
+        className="group block focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--ink)]"
+      >
         <div
           className={`grid gap-0 border-b border-[var(--rule)] md:grid-cols-2 ${
             isEven ? "" : "md:[&>*:first-child]:order-2"
@@ -49,16 +51,28 @@ function ProjectCard({
               </p>
             </div>
 
-            <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
-              {project.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="text-xs tracking-widest text-[var(--muted)] uppercase"
+            <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
+              <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                {project.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="text-xs tracking-widest text-[var(--muted)] uppercase"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
+              <span className="display inline-flex shrink-0 items-center gap-3 border border-[var(--ink)] px-4 py-2.5 text-xs font-bold tracking-[0.14em] uppercase transition-colors duration-300 group-hover:bg-[var(--ink)] group-hover:text-[var(--paper)] group-focus-visible:bg-[var(--ink)] group-focus-visible:text-[var(--paper)]">
+                View project
+                <span
+                  aria-hidden="true"
+                  className="text-base leading-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5"
                 >
-                  {tag}
-                </li>
-              ))}
-            </ul>
+                  ↗
+                </span>
+              </span>
+            </div>
           </div>
 
           {/* Image side */}
