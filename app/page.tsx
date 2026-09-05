@@ -138,85 +138,121 @@ export default function Home() {
       </section>
 
       {/* ── About ── */}
-      <div id="about"></div>
-      <SplitSection label="Profile">
-        <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[var(--rule)]">
-          {/* Bio */}
-          <div className="p-8 md:p-12">
-            <FadeIn delay={0.1}>
-              <p className="text-base leading-loose text-[var(--ink)] max-w-prose">
-                Olugbenga Simon-Peter is a graduate architect with BSc. and MSc.
-                degrees in Architecture. He has gained practical experience
-                through freelance projects and working alongside experienced
-                architects through internships. Passionate about all areas of
-                architectural design, he enjoys exploring creative architectural
-                designs and learning how to bring them to life. His long-term
-                goal is to contribute to the design and construction of iconic
-                buildings that leave a lasting impact on people and the built
-                environment.
-              </p>
+      <section
+        id="about"
+        className="scroll-mt-14 border-b border-[var(--rule)]"
+      >
+        <div className="grid md:grid-cols-[1fr_2fr] divide-y md:divide-y-0 md:divide-x divide-[var(--rule)]">
+          {/* Portrait rail */}
+          <div className="flex min-w-0 flex-col">
+            <div className="p-8 md:p-12">
+              <RevealText>
+                <span className="display text-xl font-bold tracking-widest uppercase">
+                  Profile
+                </span>
+              </RevealText>
+            </div>
+
+            <FadeIn delay={0.08} className="mt-auto">
+              <figure className="group relative aspect-[5/4] overflow-hidden border-t border-[var(--rule)] bg-[var(--card)] md:aspect-square">
+                <SuspenseImage
+                  src="/images/profile-pic.png"
+                  alt="Portrait of Olugbenga Simon-Peter"
+                  fill
+                  sizes="(min-width: 768px) 34vw, 100vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[var(--ink)]/70 to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-[0.625rem] font-medium uppercase tracking-[0.16em] text-white/80 md:p-6">
+                  <span>Olugbenga Simon-Peter</span>
+                  <span className="shrink-0">Abuja, NG</span>
+                </figcaption>
+              </figure>
             </FadeIn>
           </div>
 
-          {/* Details */}
-          <div className="p-8 md:p-12 grid gap-8">
-            {/* Education */}
-            <FadeIn delay={0.15}>
-              <div>
-                <SectionLabel>Education</SectionLabel>
+          <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[var(--rule)]">
+            {/* Bio */}
+            <div className="p-8 md:p-12">
+              <FadeIn delay={0.1}>
+                <p className="text-base leading-loose text-[var(--ink)] max-w-prose">
+                  Olugbenga Simon-Peter is a graduate architect with BSc. and
+                  MSc. degrees in Architecture. He has gained practical
+                  experience through freelance projects and working alongside
+                  experienced architects through internships. Passionate about
+                  all areas of architectural design, he enjoys exploring
+                  creative architectural designs and learning how to bring them
+                  to life. His long-term goal is to contribute to the design and
+                  construction of iconic buildings that leave a lasting impact
+                  on people and the built environment.
+                </p>
+              </FadeIn>
+            </div>
 
-                <div className="mt-3 space-y-4">
-                  {education.map((item) => (
-                    <div key={item.deg}>
-                      <p className="display font-bold text-base">{item.inst}</p>
+            {/* Details */}
+            <div className="p-8 md:p-12 grid gap-8">
+              {/* Education */}
+              <FadeIn delay={0.15}>
+                <div>
+                  <SectionLabel>Education</SectionLabel>
 
-                      <p className="text-sm text-[var(--muted)]">
-                        {item.deg} · {item.loc}
-                      </p>
-                    </div>
-                  ))}
+                  <div className="mt-3 space-y-4">
+                    {education.map((item) => (
+                      <div key={item.deg}>
+                        <p className="display font-bold text-base">
+                          {item.inst}
+                        </p>
+
+                        <p className="text-sm text-[var(--muted)]">
+                          {item.deg} · {item.loc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
 
-            {/* Experience */}
-            <FadeIn delay={0.2}>
-              <div>
-                <SectionLabel>Experience</SectionLabel>
+              {/* Experience */}
+              <FadeIn delay={0.2}>
+                <div>
+                  <SectionLabel>Experience</SectionLabel>
 
-                <div className="mt-3 space-y-2">
-                  {experience.map((item) => (
-                    <div key={item.company}>
-                      <p className="text-sm font-medium">{item.company}</p>
+                  <div className="mt-3 space-y-2">
+                    {experience.map((item) => (
+                      <div key={item.company}>
+                        <p className="text-sm font-medium">{item.company}</p>
 
-                      <p className="text-xs text-[var(--muted)]">{item.type}</p>
-                    </div>
-                  ))}
+                        <p className="text-xs text-[var(--muted)]">
+                          {item.type}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
 
-            {/* Leadership */}
-            <FadeIn delay={0.25}>
-              <div>
-                <SectionLabel>Leadership</SectionLabel>
+              {/* Leadership */}
+              <FadeIn delay={0.25}>
+                <div>
+                  <SectionLabel>Leadership</SectionLabel>
 
-                <div className="mt-3 space-y-2">
-                  {leadership.map((item) => (
-                    <div key={item.role}>
-                      <p className="text-sm font-medium">{item.role}</p>
+                  <div className="mt-3 space-y-2">
+                    {leadership.map((item) => (
+                      <div key={item.role}>
+                        <p className="text-sm font-medium">{item.role}</p>
 
-                      <p className="text-xs text-muted">
-                        {item.organization}
-                      </p>
-                    </div>
-                  ))}
+                        <p className="text-xs text-[var(--muted)]">
+                          {item.organization}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           </div>
         </div>
-      </SplitSection>
+      </section>
 
       {/* ── Skills ── */}
       <SplitSection label="Capabilities">
@@ -347,7 +383,7 @@ export default function Home() {
                 <p className="text-xs tracking-widest uppercase text-[var(--muted)] mb-2">
                   Location
                 </p>
-                <p className="display text-xl font-bold">Lagos, Nigeria</p>
+                <p className="display text-xl font-bold">Abuja, Nigeria</p>
               </div>
             </FadeIn>
           </div>
@@ -360,7 +396,7 @@ export default function Home() {
             Graduate Architect · BSc. MSc. Architecture
           </span>
           <span className="text-xs text-[var(--muted)]">
-            © 2024 All rights reserved
+            © 2026 All rights reserved
           </span>
         </div>
       </section>
